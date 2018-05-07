@@ -59,7 +59,7 @@ for {
   log.Print(string(msg.Payload))
 
   // Ack once processed.
-  if err := consumer.Ack(msg); err != nil {
+  if err := consumer.Ack(ctx, msg); err != nil {
     log.Fatal(err)
   }
 }
@@ -90,7 +90,7 @@ for {
   log.Print(string(msg.Payload))
 
   // Ack once processed.
-  if err := reader.Ack(msg); err != nil {
+  if err := reader.Ack(ctx, msg); err != nil {
     log.Fatal(err)
   }
 }
